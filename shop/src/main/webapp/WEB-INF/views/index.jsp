@@ -21,10 +21,26 @@ pageEncoding="EUC-KR"%>
   <!-- Custom styles for this template -->
   <link href="resources/css/shop-homepage.css" rel="stylesheet">
 
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#userNo').val("유저번호");
+	$.ajax({
+		type : 'POST',
+		dataType : 'json',
+		url : "main",
+		data : $('#test').serialize(),
+		success : function(data) {
+			console.log(data.userNo);
+		}
+	});
+});
+</script>
 </head>
 
 <body>
-
+	<form id="test" name="test" method="post">
+	 	<input type="hidden" id="userNo" name="userNo">
+	</form>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
